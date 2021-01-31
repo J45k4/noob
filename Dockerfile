@@ -21,6 +21,12 @@ RUN cp -R /root/squashfs-root /squashfs-root && ln -s /squashfs-root/AppRun /usr
 
 # RUN ./nvim.appimage
 
+# RUN curl -sL install-node.now.sh/lts | --yes | bash
+
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash
+
+RUN apt-get install nodejs
+
 RUN sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
