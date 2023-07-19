@@ -1,0 +1,14 @@
+
+arm64_hello:	file format mach-o arm64
+
+Disassembly of section __TEXT,__text:
+
+0000000100003f98 <_start>:
+100003f98: 20 00 80 d2 	mov	x0, #1
+100003f9c: 01 00 00 b0 	adrp	x1, 0x100004000 <_start+0x8>
+100003fa0: a2 01 80 d2 	mov	x2, #13
+100003fa4: 90 00 80 d2 	mov	x16, #4
+100003fa8: 01 10 00 d4 	svc	#0x80
+100003fac: 00 00 80 d2 	mov	x0, #0
+100003fb0: 30 00 80 d2 	mov	x16, #1
+100003fb4: 01 00 00 d4 	svc	#0

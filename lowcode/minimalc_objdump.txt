@@ -3,9 +3,24 @@ minimalc:	file format mach-o arm64
 
 Disassembly of section __TEXT,__text:
 
-0000000100003fa4 <_main>:
-100003fa4: ff 43 00 d1 	sub	sp, sp, #16
-100003fa8: 00 00 80 52 	mov	w0, #0
-100003fac: ff 0f 00 b9 	str	wzr, [sp, #12]
-100003fb0: ff 43 00 91 	add	sp, sp, #16
-100003fb4: c0 03 5f d6 	ret
+0000000100003f6c <_main>:
+100003f6c: ff 83 00 d1 	sub	sp, sp, #32
+100003f70: fd 7b 01 a9 	stp	x29, x30, [sp, #16]
+100003f74: fd 43 00 91 	add	x29, sp, #16
+100003f78: 08 00 80 52 	mov	w8, #0
+100003f7c: e8 0b 00 b9 	str	w8, [sp, #8]
+100003f80: bf c3 1f b8 	stur	wzr, [x29, #-4]
+100003f84: 00 00 00 90 	adrp	x0, 0x100003000 <_main+0x18>
+100003f88: 00 b0 3e 91 	add	x0, x0, #4012
+100003f8c: 05 00 00 94 	bl	0x100003fa0 <_printf+0x100003fa0>
+100003f90: e0 0b 40 b9 	ldr	w0, [sp, #8]
+100003f94: fd 7b 41 a9 	ldp	x29, x30, [sp, #16]
+100003f98: ff 83 00 91 	add	sp, sp, #32
+100003f9c: c0 03 5f d6 	ret
+
+Disassembly of section __TEXT,__stubs:
+
+0000000100003fa0 <__stubs>:
+100003fa0: 10 00 00 b0 	adrp	x16, 0x100004000 <__stubs+0x4>
+100003fa4: 10 02 40 f9 	ldr	x16, [x16]
+100003fa8: 00 02 1f d6 	br	x16
